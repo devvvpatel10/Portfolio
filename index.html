@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: radial-gradient(circle at top, #0f172a, #020617); }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glow:hover {
+      box-shadow: 0 0 25px #22c55e;
+      transform: scale(1.05);
+    }
+
+    .bar {
+      height: 8px;
+      border-radius: 10px;
+      background: #1e293b;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      background: linear-gradient(to right, #22c55e, #38bdf8);
+    }
+  </style>
+</head>
+<body class="text-white">
+
+<!-- Hero -->
+<section class="h-screen flex flex-col justify-center items-center text-center">
+  <h1 class="text-5xl font-bold mb-4">Dev Patel</h1>
+  <p class="text-xl text-gray-400">AI Developer | Web Developer</p>
+
+  <div class="flex gap-4 mt-6">
+    <a href="https://drive.google.com/file/d/17F3FsnaOqECXZeOrT0YTHwZVofdk5X0Z/view?usp=drive_link" download class="bg-green-400 text-black px-6 py-2 rounded-xl">
+  Download Resume
+</a>
+    <a href="#projects" class="border px-6 py-2 rounded-xl">View Work</a>
+  </div>
+</section>
+
+<!-- About -->
+<section class="py-20 px-6 max-w-4xl mx-auto fade-in">
+  <div class="glass p-8 rounded-2xl">
+    <h2 class="text-3xl font-bold mb-4">About Me</h2>
+    <p class="text-gray-300">
+      I build AI-powered applications and modern web experiences. Focused on real-world impact, automation, and smart systems.
+    </p>
+  </div>
+</section>
+
+<!-- Skills with Progress -->
+<section class="py-20 px-6 max-w-4xl mx-auto fade-in">
+  <h2 class="text-3xl font-bold mb-8 text-center">Skills</h2>
+
+  <div class="space-y-6">
+
+    <div>
+      <p>Python (AI/ML)</p>
+      <div class="bar"><div class="fill" style="width: 85%"></div></div>
+    </div>
+
+    <div>
+      <p>JavaScript</p>
+      <div class="bar"><div class="fill" style="width: 75%"></div></div>
+    </div>
+
+    <div>
+      <p>HTML/CSS</p>
+      <div class="bar"><div class="fill" style="width: 90%"></div></div>
+    </div>
+
+    <div>
+      <p>DSA</p>
+      <div class="bar"><div class="fill" style="width: 70%"></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="py-20 px-6 max-w-6xl mx-auto fade-in">
+  <h2 class="text-3xl font-bold mb-8 text-center">AI Projects</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <div class="glass p-6 rounded-2xl glow">
+      <h3 class="text-xl font-semibold mb-2">AI Chatbot</h3>
+      <p class="text-gray-400 mb-4">Chatbot using NLP & Python.</p>
+      <div class="flex gap-3">
+        <a href="#" class="text-green-400">Live Demo</a>
+        <a href="#" class="text-blue-400">GitHub</a>
+      </div>
+    </div>
+
+    <div class="glass p-6 rounded-2xl glow">
+      <h3 class="text-xl font-semibold mb-2">AI Image Generator</h3>
+      <p class="text-gray-400 mb-4">Generate images using AI models.</p>
+      <div class="flex gap-3">
+        <a href="#" class="text-green-400">Live Demo</a>
+        <a href="#" class="text-blue-400">GitHub</a>
+      </div>
+    </div>
+
+    <div class="glass p-6 rounded-2xl glow">
+      <h3 class="text-xl font-semibold mb-2">Smart DSA Tracker</h3>
+      <p class="text-gray-400 mb-4">Track coding progress with analytics.</p>
+      <div class="flex gap-3">
+        <a href="#" class="text-green-400">Live Demo</a>
+        <a href="#" class="text-blue-400">GitHub</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Social Links -->
+<section class="py-20 text-center fade-in">
+  <h2 class="text-2xl mb-6">Connect With Me</h2>
+  <div class="flex justify-center gap-6">
+    <a href="https://www.linkedin.com/in/dev-patel-0758003ab/" class="text-blue-400">LinkedIn</a>
+    <a href="https://github.com/devvvpatel10" class="text-green-400">GitHub</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="py-20 px-6 max-w-3xl mx-auto text-center fade-in">
+  <div class="glass p-8 rounded-2xl">
+    <h2 class="text-3xl font-bold mb-4">Contact</h2>
+    <p class="text-gray-400 mb-4">code.devvvv@gmail.com</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-6 text-gray-500">
+  © 2026 Dev Patel | Portfolio
+</footer>
+
+<script>
+  const elements = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+  elements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
